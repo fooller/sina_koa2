@@ -15,14 +15,17 @@
 	logs                pm2运行时生成的日志文件
 	noode_modules      
 	src
-		controllers     
-			index.js    controller入口文件
-			email.js    nodemailer 邮件发送controller
-			common.js   公共接口，比如：验证接口来源，检测接口参数，公共用户信息等
+		
+		dao                 	操作数据库
+			loginuserDao.js 用户查询、插入、修改loginuser表
+			
+		routers     
+			index.js    	路由入口文件
+			login.js    	配置前台访问的url
 			......
-		models
-		routes
-			index.js    路由入口
+		service	
+			login(业务逻辑处理层)
+				loginService.js(处理登陆、注册、修改的业务) 
 			......
 		tool
 			index.js    入口文件
