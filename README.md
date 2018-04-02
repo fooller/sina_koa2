@@ -1,11 +1,14 @@
-#zane-koa2-ejs-mysql
+#新浪微博koa2
 
 
-### 项目采用 koa2+gulp+mysql 搭建的一套后台前端集成模板
+### 技术栈 koa2+gulp+mysql
 
 ##项目通过gulp-nodemon 实时编译刷新node服务
 
-
+##功能目录
+```
+	1、登陆、注册、修改密码
+```
 ##项目目录结构
 ```
 	assets    
