@@ -13,13 +13,13 @@
 ```
 	assets    
 	build 
-		server.js     	项目启动文件 babel 编译
-	dist   				打包好的项目文件	
-	logs                pm2运行时生成的日志文件
+		server.js     		项目启动文件 babel 编译
+	dist   					打包好的项目文件	
+	logs                	pm2运行时生成的日志文件
 	noode_modules      
 	src
 		
-		dao                 	操作数据库
+		dao                 操作数据库
 			loginuserDao.js 用户查询、插入、修改loginuser表
 			
 		routers     
@@ -28,18 +28,19 @@
 			......
 		service	
 			login(业务逻辑处理层)
-				loginService.js(处理登陆、注册、修改的业务) 
+				loginService.js
+							(处理登陆、注册、修改的业务) 
 			......
 		tool
-			index.js    入口文件
-			getsql.js   对mysql 的增删改查 语句的封装
-			mysql.js    mysql配置文件
-			util.js     工具函数
+			index.js    	入口文件
+			getsql.js   	对mysql 的增删改查 语句的封装
+			mysql.js    	mysql配置文件
+			util.js     	工具函数
 	.babelrc
 	.gitignore
-	gulpfile.js         gulp配置
+	gulpfile.js         	gulp配置
 	package.json
-	pm2.config.json     pm2配置
+	pm2.config.json     	pm2配置
 	README.md		
 
 ```
