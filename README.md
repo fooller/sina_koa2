@@ -45,6 +45,34 @@
 
 ```
 
+```
+创建数据库
+CREATE DATABASE `login` 
+创建三张表
+CREATE TABLE `files` (
+  `filetype` varchar(255) DEFAULT NULL,
+  `id` varchar(255) NOT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `filepath` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `release` (
+  `content` varchar(10000) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `files_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8
+
+CREATE TABLE `user` (
+  `id` varchar(255) DEFAULT NULL,
+  `loginname` varchar(255) DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+```
+
 ### 说明
 
 ```
