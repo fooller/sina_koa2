@@ -1,6 +1,8 @@
 
 import loginuserDao from '../../dao/loginuserDao.js';
 import { promise } from 'is-type-of';
+const uuidV1 = require('uuid/v1');
+
 class loginService{
 
     /**
@@ -85,7 +87,12 @@ class loginService{
             }
         }
         console.log('进入了注册的服务层');
-        let result = await loginuserDao.userRegist(userName,passWord);
+        let data = {};
+        data.id = uuidV1();
+        data.userName = userName;
+        data.passWord = passWord;
+        
+        let result = await loginuserDao.userRegist(data);
         if (result.serverStatus == 2) {
             return ctx.body = {
                 status:200,

@@ -21,15 +21,13 @@ class loginUserDao{
 
     /**
      * 用户注册
-     * @param {any} userName 
-     * @param {any} passWord 
      * @returns 
      * @memberof loginUserDao
      */
-    async userRegist(userName,passWord){
+    async userRegist(data){
         let json = {};
         json.table = 'loginuser';
-        json.fields = [{loginname:userName},{password:passWord}];
+        json.fields = [{id:data.id},{loginname:data.userName},{password:data.passWord}];
         let sql = getsql.INSERT(json);
         console.log('执行的sql：'+ sql);
         return await mysql(sql);
