@@ -1,7 +1,7 @@
 # 新浪微博koa2
 
 
-### 技术栈 koa2+gulp+mysql
+### 技术栈 koa2+gulp+mysql （对应的前端页面请github搜索，sina_vue)
 
 ## 项目通过gulp-nodemon 实时编译刷新node服务
 
