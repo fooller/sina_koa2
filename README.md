@@ -1,15 +1,15 @@
-#新浪微博koa2
+# 新浪微博koa2
 
 
 ### 技术栈 koa2+gulp+mysql
 
-##项目通过gulp-nodemon 实时编译刷新node服务
+## 项目通过gulp-nodemon 实时编译刷新node服务
 
-##功能目录
+## 功能目录
 ```
 	1、登陆、注册、修改密码
 ```
-##项目目录结构
+## 项目目录结构
 ```
 	assets    
 	build 
@@ -44,7 +44,7 @@
 	README.md		
 
 ```
-
+### mysql数据库
 ```
 创建数据库
 CREATE DATABASE `login` 
@@ -86,7 +86,7 @@ CREATE TABLE `user` (
 
 
 
-##运行方式
+## 运行方式
 ```
 	开发环境：npm run dev
 
