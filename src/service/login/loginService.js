@@ -6,11 +6,11 @@ const uuidV1 = require('uuid/v1');
 class loginService{
 
     /**
-     * 用户登陆校验
+     * 登陆
      * 
      * @memberof loginService
      */
-    async userLoginService(ctx){
+    async userLoginService(ctx,content){
         console.log('进入到了服务层');
         /**
          * 校验
@@ -27,8 +27,6 @@ class loginService{
          * 调用dao层，对数据进行处理
          */
         let result = await loginuserDao.userLoginDao(userName,passWord);
-        console.log('看看promise容器到底是什么玩意')
-        console.log(result);
         if(result.length){
             let data = {
                 status:200,
@@ -36,21 +34,22 @@ class loginService{
                 message:'登陆成功'
             }
             console.log(ctx.url);
-            let options = {
-                domain: 'localhost',  // 写cookie所在的域名
-                path: '/list',       // 写cookie所在的路径
-                maxAge: 10 * 60 * 1000, // cookie有效时长
-                expires: new Date('2018-02-30'),  // cookie失效时间
-                httpOnly: false,  // 是否只用于http请求中获取
-                overwrite: false  // 是否允许重写
-              }
-            ctx.cookies.set(
-                'cid', 
-                'hello world',
-                options
-            )
-            let val = ctx.cookies.get('cid', options) 
-            console.log(val);
+            // let options = {
+            //     domain: 'localhost',  // 写cookie所在的域名
+            //     path: '/list',       // 写cookie所在的路径
+            //     maxAge: 10 * 60 * 1000, // cookie有效时长
+            //     expires: new Date('2018-02-30'),  // cookie失效时间
+            //     httpOnly: false,  // 是否只用于http请求中获取
+            //     overwrite: false  // 是否允许重写
+            //   }
+            // ctx.cookies.set(
+            //     'cid', 
+            //     'hello world',
+            //     options
+            // )
+            // let val = ctx.cookies.get('cid', options) 
+            // const cookie = content.cookie;
+            // console.log('cookie==='+cookie);
             ctx.body = data;
         }else {
             let data = {
@@ -62,6 +61,12 @@ class loginService{
         }
     }
 
+    /**
+     * 注册
+     * @param {any} ctx 
+     * @returns 
+     * @memberof loginService
+     */
     async userRegist(ctx){
         /**
          * 判空

@@ -5,8 +5,8 @@ import KoaLogger from 'koa-logger'
 import cors from 'koa-cors'
 import path from 'path'
 import render from 'koa-ejs'
-// import cookie from 'koa-cookie'
-// import session from 'koa-session'
+import cookie from 'koa-cookie'
+import session from 'koa-session'
 import koa2Common from 'koa2-common'
 import KoaBodyParse from 'koa-bodyparser';
 import {
@@ -33,8 +33,8 @@ render(app, {
 });
 
 app
-    // .use(cookie())
-    // .use(session(app))
+    .use(cookie())
+    .use(session(app))
     .use(KoaBody({
         multipart: true
         // 下边的这段代码、是一个错误的代码，把dirname写死了！！！！
@@ -53,8 +53,6 @@ app
         methods: ['GET', 'PUT', 'POST'],
         credentials: true,
     }))
-    .use(front.routes())
-    .use(front.allowedMethods())
     .use(login.routes())
     .use(login.allowedMethods())
     .use((ctx, next) => {

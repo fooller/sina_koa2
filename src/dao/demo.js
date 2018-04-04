@@ -18,7 +18,7 @@ class loginUser {
     async findUserInfo() {
         console.log('进入了数据处理层');
         let sql = getsql.SELECT({
-            table: 'loginuser',
+            table: 'user',
             sort: 'id',
             isdesc: true,
         });

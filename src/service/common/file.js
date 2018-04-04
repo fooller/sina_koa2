@@ -8,7 +8,7 @@ const os = require('os');
 const path = require('path');
 const uuidV1 = require('uuid/v1');
 
-class login {
+class file {
     // 获取用户名和密码
     async getLoginName(ctx) {
         let result;
@@ -23,15 +23,18 @@ class login {
         }
     }
     /**
-     * 新增图片的方法
-     * 
+     * 保存文件的方法
+     * @return fileObj
      * @param {any} ctx 
-     * @memberof login
+     * @memberof file
      */
     async saveFile(ctx) {
-        console.log('进入了服务层');
-        let fileObj = {};
+        let fileObj;
         let file = ctx.request.body.files.file;
+        if (!file) {
+            return null;
+        }
+        console.log('开始保存文件=========================');
         let filePath = path.join(path.resolve('src/uploads/images'), file.name);
         const reader = fs.createReadStream(file.path);
         const writer = fs.createWriteStream(filePath);
@@ -40,17 +43,15 @@ class login {
         fileObj.name = file.name;
         fileObj.path = filePath;
         fileObj.type = '0';
-        let result;
         try {
             await demo.saveFile(fileObj).then(res => {
-                // console.log(res);
-                result = res;
+                console.log('返回文件对象===================')
+                console.log('文件编号：'+ fileObj.id);
+                console.log('文件名称：'+ fileObj.name);
+                return fileObj;
             })
-            await demo.findFiles().then(res => {
-                result = res;
-            })
-            ctx.body = result;
         } catch (error) {
+            console.log('保存文件出错================')
             console.log(error);
         }
     }
@@ -126,4 +127,4 @@ class login {
     }
 }
 
-module.exports = new login();
+module.exports = new file();
